@@ -1,45 +1,20 @@
 <?php
 
-require_once 'db.php';
+$clientes = [];
 
-function criarCliente($data) {
+
+function criarCliente($dados) {
+    global $clientes;
+    $id = count($clientes) + 1;
     $cliente = [
-        'nome' => $data['nome'],
-        'email' => $data['email'],
-        'telefone' => $data['telefone'],
-        'cpf' => $data['cpf'],
-        'cep' => $data['cep'],
-        'endereco' => $data['endereco'],
-        'agencia' => $data['agencia'],
-        'conta' => $data['conta']
+        'id' => $id,
+        'nome' => $dados['nome'],
+        'email' => $dados['email'],
+        'telefone' => $dados['telefone']
     ];
-    return adicionarCliente($cliente);
+    $clientes[$id] = $cliente;
+    return $cliente;
 }
 
-function listarClientes() {
-    return listarClientes();
-}
-
-function buscarCliente($id) {
-    return buscarCliente($id);
-}
-
-function atualizarCliente($id, $data) {
-    $cliente = [
-        'nome' => $data['nome'],
-        'email' => $data['email'],
-        'telefone' => $data['telefone'],
-        'cpf' => $data['cpf'],
-        'cep' => $data['cep'],
-        'endereco' => $data['endereco'],
-        'agencia' => $data['agencia'],
-        'conta' => $data['conta']
-    ];
-    return atualizarCliente($id, $cliente);
-}
-
-function removerCliente($id) {
-    return removerCliente($id);
-}
 
 ?>
